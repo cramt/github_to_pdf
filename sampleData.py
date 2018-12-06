@@ -1,5 +1,9 @@
-from bs4 import BeautifulSoup
+from types import CoroutineType
 
+from bs4 import BeautifulSoup
+import asyncio
+
+import http_request
 from indexing import Index
 import urllib.request
 

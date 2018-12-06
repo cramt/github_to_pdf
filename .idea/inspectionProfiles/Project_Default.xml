@@ -5,6 +5,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="list.__len__" />
+          <option value="types.CoroutineType.__getitem__" />
         </list>
       </option>
     </inspection_tool>

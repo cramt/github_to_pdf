@@ -7,10 +7,9 @@ import json
 
 from sampleData import sample, join
 
-url = "https://github.com/cramt/angler"
+url = "https://github.com/facebook/react"
 ignores = ["gradle/wrapper", ".idea"]
 
 indexes = indexing(url, ignores)
 # s = urllib.request.urlopen("https://github.com/cramt/angler/blob/master/app/build.gradle").read()
 pdfkit.from_string(join(sample(indexes)).replace("\\n", ""), "out.pdf")
-
