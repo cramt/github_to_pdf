@@ -1,15 +1,16 @@
-import urllib.request
-from bs4 import BeautifulSoup
 import pdfkit
 
 from indexing import indexing
-import json
-
 from sampleData import sample, join
 
-url = "https://github.com/facebook/react"
-ignores = ["gradle/wrapper", ".idea"]
+url = "https://github.com/" + input("the url for the github repo -> ")
+ignores = input("list of ignores, separated by kommas -> ").split(",")
+output_file_name = input("output file name -> ")
+
+
+def sanitize_input_for_pdfkit(indexes):
+    return join(sample(indexes)).replace("\\n", "")
+
 
 indexes = indexing(url, ignores)
-# s = urllib.request.urlopen("https://github.com/cramt/angler/blob/master/app/build.gradle").read()
-pdfkit.from_string(join(sample(indexes)).replace("\\n", ""), "out.pdf")
+pdfkit.from_string(sanitize_input_for_pdfkit(indexes), output_file_name)
